@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>madaqatar × SuperPark Riyadh — Video Production Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --orange: #FF4D1C;
+  --gold: #FFB800;
+  --cyan: #00D9FF;
+  --black: #080808;
+  --dark: #111111;
+  --card: #161616;
+  --white: #F5F0E8;
+  --muted: #888;
+  --border: rgba(255,255,255,0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 12px; height: 12px;
+  background: var(--orange);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--orange);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: all 0.12s ease;
+  mix-blend-mode: difference;
+}
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 20px 48px;
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue'; font-size: 22px;
+  letter-spacing: 4px; color: var(--white);
+}
+.nav-logo span { color: var(--orange); }
+.nav-links { display:flex; gap:32px; }
+.nav-links a {
+  font-family: 'Space Mono'; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--muted); text-decoration:none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--orange); }
+.nav-tag {
+  font-family: 'Space Mono'; font-size: 10px;
+  color: var(--orange); letter-spacing: 2px;
+  border: 1px solid var(--orange);
+  padding: 4px 12px; text-transform:uppercase;
+}
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding: 140px 48px 80px;
+  position:relative; overflow:hidden;
+}
+.hero-noise {
+  position:absolute; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none; opacity:0.6;
+}
+.hero-grid {
+  position:absolute; inset:0;
+  background-image: linear-gradient(rgba(255,77,28,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,28,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events:none;
+}
+.hero-glow {
+  position:absolute; width:700px; height:700px;
+  background: radial-gradient(ellipse, rgba(255,77,28,0.15) 0%, transparent 70%);
+  top:-200px; right:-200px; pointer-events:none;
+}
+.hero-glow2 {
+  position:absolute; width:400px; height:400px;
+  background: radial-gradient(ellipse, rgba(0,217,255,0.08) 0%, transparent 70%);
+  bottom:-100px; left:-100px; pointer-events:none;
+}
+.hero-eyebrow {
+  font-family: 'Space Mono'; font-size:11px;
+  letter-spacing: 4px; text-transform:uppercase;
+  color: var(--orange); margin-bottom:24px;
+  display:flex; align-items:center; gap:12px;
+}
+.hero-eyebrow::before {
+  content:''; display:block; width:40px; height:1px; background:var(--orange);
+}
+.hero-title {
+  font-family: 'Bebas Neue';
+  font-size: clamp(80px, 12vw, 160px);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  max-width: 900px;
+  position:relative; z-index:1;
+}
+.hero-title .line2 { color: var(--orange); }
+.hero-title .line3 {
+  -webkit-text-stroke: 1px rgba(245,240,232,0.3);
+  color: transparent;
+}
+.hero-sub {
+  margin-top:40px;
+  font-size:16px; font-weight:300;
+  color: rgba(245,240,232,0.6);
+  max-width:480px; line-height:1.7;
+  position:relative; z-index:1;
+}
+.hero-meta {
+  margin-top:48px;
+  display:flex; gap:48px; align-items:flex-end;
+  position:relative; z-index:1;
+}
+.hero-meta-item label {
+  display:block; font-family:'Space Mono'; font-size:10px;
+  letter-spacing:3px; text-transform:uppercase; color:var(--muted);
+  margin-bottom:6px;
+}
+.hero-meta-item value {
+  font-family:'Bebas Neue'; font-size:28px; color:var(--white); letter-spacing:1px;
+}
+.hero-cta {
+  display:inline-flex; align-items:center; gap:12px;
+  background: var(--orange); color: var(--black);
+  font-family:'Space Mono'; font-size:11px;
+  letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  padding: 16px 32px;
+  transition: background 0.2s, transform 0.2s;
+}
+.hero-cta:hover { background: var(--gold); transform: translateY(-2px); }
+.hero-cta svg { transition: transform 0.2s; }
+.hero-cta:hover svg { transform: translateX(4px); }
+.hero-scroll {
+  position:absolute; bottom:40px; right:48px;
+  font-family:'Space Mono'; font-size:10px; color:var(--muted);
+  letter-spacing:3px; text-transform:uppercase;
+  display:flex; align-items:center; gap:12px;
+  writing-mode: vertical-rl;
+}
+.hero-scroll::after {
+  content:''; display:block; width:1px; height:60px; background:var(--muted);
+}
+
+/* SECTION COMMONS */
+section { padding: 120px 48px; }
+.section-label {
+  font-family:'Space Mono'; font-size:10px; letter-spacing:4px;
+  text-transform:uppercase; color:var(--orange);
+  display:flex; align-items:center; gap:12px; margin-bottom:16px;
+}
+.section-label::before {
+  content: attr(data-num);
+  font-size:10px; color:var(--border);
+}
+.section-title {
+  font-family:'Bebas Neue'; font-size:clamp(48px,6vw,80px);
+  letter-spacing:1px; line-height:1; margin-bottom:48px;
+}
+.section-title span { color: var(--orange); }
+
+/* ABOUT */
+#about { background: var(--dark); border-top:1px solid var(--border); }
+.about-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+}
+.about-text p {
+  font-size:17px; line-height:1.8; color:rgba(245,240,232,0.75);
+  margin-bottom:20px;
+}
+.about-text p strong { color:var(--white); font-weight:500; }
+.about-stats {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+}
+.stat-card {
+  background: var(--card); padding:32px 28px;
+  border:1px solid var(--border);
+  position:relative; overflow:hidden;
+  transition: border-color 0.3s;
+}
+.stat-card:hover { border-color:var(--orange); }
+.stat-card::before {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(255,77,28,0.05), transparent);
+}
+.stat-num {
+  font-family:'Bebas Neue'; font-size:56px; color:var(--orange);
+  line-height:1; display:block;
+}
+.stat-label {
+  font-size:13px; color:var(--muted); margin-top:4px;
+  font-weight:300; line-height:1.4;
+}
+
+/* UNDERSTANDING */
+#understanding { background: var(--black); }
+.understanding-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+}
+.u-card {
+  background:var(--card); padding:40px 32px;
+  border:1px solid var(--border);
+  transition: all 0.3s;
+  position:relative; overflow:hidden;
+}
+.u-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
+}
+.u-card-icon {
+  font-size:32px; margin-bottom:20px; display:block;
+}
+.u-card h3 {
+  font-family:'Bebas Neue'; font-size:26px; letter-spacing:1px;
+  margin-bottom:12px; color:var(--white);
+}
+.u-card p {
+  font-size:14px; color:var(--muted); line-height:1.7;
+}
+.u-card-num {
+  position:absolute; top:20px; right:20px;
+  font-family:'Space Mono'; font-size:11px; color:var(--border);
+}
+
+/* APPROACH - PHASES */
+#approach { background: var(--dark); border-top:1px solid var(--border); }
+.phases { display:flex; flex-direction:column; gap:2px; }
+.phase {
+  display:grid; grid-template-columns: 200px 1fr 240px;
+  gap:0; background:var(--card); border:1px solid var(--border);
+  transition: border-color 0.3s; overflow:hidden;
+}
+.phase:hover { border-color:var(--orange); }
+.phase-num {
+  background: var(--orange); color:var(--black);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Bebas Neue'; font-size:80px; letter-spacing:-2px;
+  position:relative;
+}
+.phase-body { padding:40px; }
+.phase-body h3 {
+  font-family:'Bebas Neue'; font-size:32px; letter-spacing:1px;
+  color:var(--white); margin-bottom:8px;
+}
+.phase-body .phase-sub {
+  font-family:'Space Mono'; font-size:10px; letter-spacing:3px;
+  text-transform:uppercase; color:var(--orange); margin-bottom:16px;
+}
+.phase-body p {
+  font-size:14px; color:var(--muted); line-height:1.7; max-width:500px;
+}
+.phase-outputs {
+  background:rgba(0,0,0,0.3); padding:32px;
+  border-left:1px solid var(--border);
+  display:flex; flex-direction:column; justify-content:center; gap:10px;
+}
+.phase-outputs h4 {
+  font-family:'Space Mono'; font-size:10px; letter-spacing:3px;
+  text-transform:uppercase; color:var(--muted); margin-bottom:8px;
+}
+.output-item {
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; color:var(--white); line-height:1.4;
+}
+.output-item::before {
+  content:''; display:block; width:6px; height:6px;
+  background:var(--orange); flex-shrink:0; border-radius:50%;
+}
+
+/* CREW */
+#crew { background:var(--black); }
+.crew-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:2px;
+}
+.crew-card {
+  background:var(--card); padding:32px 24px;
+  border:1px solid var(--border); text-align:center;
+  transition: all 0.3s;
+}
+.crew-card:hover {
+  border-color:var(--cyan); transform:translateY(-4px);
+}
+.crew-avatar {
+  width:64px; height:64px; border-radius:50%;
+  background: linear-gradient(135deg, var(--orange), var(--gold));
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; margin:0 auto 20px; position:relative;
+}
+.crew-location {
+  position:absolute; bottom:-4px; right:-4px;
+  background:var(--black); border:1px solid var(--border);
+  border-radius:50%; width:20px; height:20px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px;
+}
+.crew-card h3 {
+  font-family:'Bebas Neue'; font-size:22px; letter-spacing:1px;
+  margin-bottom:4px;
+}
+.crew-card .role {
+  font-family:'Space Mono'; font-size:10px; color:var(--orange);
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;
+}
+.crew-card .desc {
+  font-size:12px; color:var(--muted); line-height:1.6;
+}
+.crew-note {
+  margin-top:32px; padding:24px 32px;
+  background:var(--card); border:1px solid var(--border);
+  display:flex; align-items:center; gap:16px;
+}
+.crew-note-icon { font-size:24px; }
+.crew-note p { font-size:13px; color:var(--muted); line-height:1.6; }
+.crew-note p strong { color:var(--white); }
+
+/* WORK SAMPLES */
+#samples { background:var(--dark); border-top:1px solid var(--border); }
+.samples-intro {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:48px;
+}
+.samples-intro p {
+  max-width:400px; font-size:14px; color:var(--muted); line-height:1.7;
+}
+.samples-grid {
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:2px;
+}
+.sample-card {
+  position:relative; overflow:hidden; aspect-ratio:9/14;
+  background:var(--card); border:1px solid var(--border);
+  cursor:pointer; group: true;
+}
+.sample-card.featured { aspect-ratio:auto; grid-row:span 2; }
+.sample-thumb {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.5s; display:flex;
+  align-items:center; justify-content:center;
+  background:var(--card);
+}
+.sample-card:hover .sample-thumb { transform:scale(1.04); }
+.sample-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 50%);
+  padding:24px; display:flex; flex-direction:column; justify-content:flex-end;
+  opacity:0; transition:opacity 0.3s;
+}
+.sample-card:hover .sample-overlay { opacity:1; }
+.sample-play {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:56px; height:56px; border-radius:50%;
+  background:rgba(255,77,28,0.9); border:none;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all 0.3s;
+  text-decoration:none; color:white;
+}
+.sample-play:hover { background:var(--orange); transform:translate(-50%,-50%) scale(1.1); }
+.sample-views {
+  font-family:'Space Mono'; font-size:10px; letter-spacing:2px;
+  color:var(--cyan); margin-bottom:8px;
+}
+.sample-title {
+  font-family:'Bebas Neue'; font-size:22px; color:var(--white);
+}
+.sample-tag {
+  display:inline-block; background:var(--orange); color:var(--black);
+  font-family:'Space Mono'; font-size:9px; letter-spacing:2px;
+  text-transform:uppercase; padding:4px 10px; margin-bottom:10px;
+}
+/* iframe embed reel */
+.reel-embed {
+  position:absolute; inset:0; width:100%; height:100%;
+  border:none; display:none;
+}
+.sample-bg {
+  width:100%; height:100%;
+  background:var(--card);
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:8px; padding:20px;
+  text-align:center;
+}
+.sample-ig-icon { font-size:40px; opacity:0.4; }
+.sample-bg-label {
+  font-family:'Space Mono'; font-size:10px; color:var(--muted);
+  letter-spacing:2px; text-transform:uppercase;
+}
+
+/* EDITING */
+#editing { background:var(--black); }
+.editing-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px;
+}
+.editing-left {}
+.editing-timeline { display:flex; flex-direction:column; gap:0; }
+.timeline-item {
+  display:grid; grid-template-columns:80px 1fr;
+  gap:0; position:relative;
+}
+.timeline-item::before {
+  content:''; position:absolute; left:39px; top:52px; bottom:-32px;
+  width:2px; background:var(--border);
+}
+.timeline-item:last-child::before { display:none; }
+.timeline-day {
+  display:flex; flex-direction:column; align-items:center;
+  padding-top:16px;
+}
+.t-circle {
+  width:24px; height:24px; border-radius:50%;
+  background:var(--orange); display:flex; align-items:center;
+  justify-content:center; z-index:1;
+  font-family:'Space Mono'; font-size:9px; font-weight:700; color:var(--black);
+}
+.t-label {
+  font-family:'Space Mono'; font-size:9px; color:var(--muted);
+  letter-spacing:1px; margin-top:6px; white-space:nowrap;
+}
+.timeline-content {
+  padding:12px 0 32px 24px; border-left:none;
+}
+.timeline-content h4 {
+  font-family:'Bebas Neue'; font-size:20px; color:var(--white);
+  letter-spacing:1px; margin-bottom:4px;
+}
+.timeline-content p { font-size:13px; color:var(--muted); line-height:1.6; }
+.editing-right {}
+.editing-approach-items { display:flex; flex-direction:column; gap:16px; }
+.ea-item {
+  padding:24px; background:var(--card); border:1px solid var(--border);
+  border-left:3px solid var(--orange); transition:all 0.3s;
+}
+.ea-item:hover { border-color:var(--orange); transform:translateX(4px); }
+.ea-item h4 {
+  font-family:'Bebas Neue'; font-size:20px; letter-spacing:1px;
+  color:var(--white); margin-bottom:6px;
+}
+.ea-item p { font-size:13px; color:var(--muted); line-height:1.6; }
+.revisions-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,184,0,0.1); border:1px solid rgba(255,184,0,0.3);
+  padding:12px 20px; margin-top:24px;
+  font-family:'Space Mono'; font-size:11px; color:var(--gold);
+  letter-spacing:2px;
+}
+
+/* DELIVERABLES */
+#deliverables { background:var(--dark); border-top:1px solid var(--border); }
+.deliv-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+}
+.deliv-card {
+  background:var(--card); padding:32px; border:1px solid var(--border);
+  transition: all 0.3s;
+}
+.deliv-card:hover { border-color:var(--orange); }
+.deliv-num {
+  font-family:'Bebas Neue'; font-size:64px; color:rgba(255,77,28,0.2);
+  line-height:1; margin-bottom:16px; display:block;
+}
+.deliv-card h3 {
+  font-family:'Bebas Neue'; font-size:22px; letter-spacing:1px;
+  color:var(--white); margin-bottom:12px;
+}
+.deliv-list { list-style:none; }
+.deliv-list li {
+  font-size:13px; color:var(--muted); padding:7px 0;
+  border-bottom:1px solid var(--border); line-height:1.5;
+  display:flex; align-items:flex-start; gap:8px;
+}
+.deliv-list li::before {
+  content:'→'; color:var(--orange); flex-shrink:0; font-size:11px; margin-top:1px;
+}
+
+/* PRICING */
+#pricing { background:var(--black); }
+.pricing-intro {
+  max-width:600px; font-size:15px; color:var(--muted);
+  line-height:1.7; margin-bottom:48px;
+}
+.pricing-table {
+  width:100%; border-collapse:collapse;
+  border:1px solid var(--border);
+}
+.pricing-table th {
+  background:var(--orange); color:var(--black);
+  font-family:'Space Mono'; font-size:10px;
+  letter-spacing:3px; text-transform:uppercase;
+  padding:16px 24px; text-align:left;
+}
+.pricing-table td {
+  padding:18px 24px; border-bottom:1px solid var(--border);
+  font-size:14px; color:var(--white); vertical-align:top;
+}
+.pricing-table tr:last-of-type td { border-bottom:none; }
+.pricing-table td:first-child {
+  font-family:'Space Mono'; font-size:10px; letter-spacing:2px;
+  color:var(--muted); text-transform:uppercase; white-space:nowrap; width:220px;
+}
+.pricing-table td:last-child {
+  font-family:'Bebas Neue'; font-size:22px; letter-spacing:1px;
+  color:var(--orange); text-align:right; white-space:nowrap;
+}
+.pricing-table tr.category td {
+  background:rgba(255,255,255,0.02);
+  font-size:11px; color:var(--muted); padding:12px 24px;
+  font-family:'Space Mono'; letter-spacing:3px; text-transform:uppercase;
+}
+.pricing-table tr.total td {
+  background:var(--card); border-top:2px solid var(--orange);
+  font-weight:700;
+}
+.pricing-table tr.total td:first-child {
+  font-family:'Bebas Neue'; font-size:18px; color:var(--white);
+  letter-spacing:2px;
+}
+.pricing-table tr.total td:last-child {
+  font-size:36px; color:var(--orange);
+}
+.pricing-table tr.optional td {
+  color:var(--muted);
+}
+.pricing-table tr.optional td:last-child {
+  color:var(--muted); font-size:20px;
+}
+.pricing-note {
+  margin-top:24px; padding:20px 24px;
+  background:rgba(0,217,255,0.05); border:1px solid rgba(0,217,255,0.15);
+  font-size:13px; color:rgba(0,217,255,0.8); line-height:1.6;
+}
+
+/* TERMS */
+#terms { background:var(--dark); border-top:1px solid var(--border); }
+.terms-grid {
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px;
+}
+.term-card {
+  background:var(--card); padding:32px; border:1px solid var(--border);
+}
+.term-card h3 {
+  font-family:'Bebas Neue'; font-size:22px; letter-spacing:1px;
+  color:var(--white); margin-bottom:16px;
+  padding-bottom:12px; border-bottom:1px solid var(--border);
+}
+.term-card ul { list-style:none; }
+.term-card ul li {
+  font-size:13px; color:var(--muted); padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  display:flex; gap:10px; line-height:1.5;
+}
+.term-card ul li::before { content:'—'; color:var(--orange); flex-shrink:0; }
+
+/* CLOSING */
+#closing {
+  min-height:90vh; background:var(--black);
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+  padding: 120px 48px;
+  border-top:1px solid var(--border);
+}
+.closing-glow {
+  position:absolute; width:800px; height:800px;
+  background:radial-gradient(ellipse, rgba(255,77,28,0.12) 0%, transparent 65%);
+  bottom:-300px; left:50%; transform:translateX(-50%);
+  pointer-events:none;
+}
+.closing-tag {
+  font-family:'Space Mono'; font-size:10px; letter-spacing:4px;
+  text-transform:uppercase; color:var(--orange);
+  margin-bottom:24px; display:flex; align-items:center; gap:12px;
+}
+.closing-tag::before { content:''; display:block; width:40px; height:1px; background:var(--orange); }
+.closing-title {
+  font-family:'Bebas Neue'; font-size:clamp(60px,9vw,120px);
+  line-height:0.9; margin-bottom:48px;
+}
+.closing-title .sub { color:var(--orange); }
+.closing-contact {
+  display:grid; grid-template-columns:repeat(3,auto); gap:48px;
+  align-items:start; margin-top:0;
+}
+.contact-item label {
+  display:block; font-family:'Space Mono'; font-size:10px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--muted); margin-bottom:8px;
+}
+.contact-item value {
+  display:block; font-size:16px; color:var(--white); font-weight:500;
+}
+.closing-divider {
+  width:100%; height:1px; background:var(--border); margin:48px 0;
+}
+.closing-bottom {
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:'Space Mono'; font-size:10px; color:var(--muted);
+  letter-spacing:2px; text-transform:uppercase;
+}
+.confidential-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,184,0,0.08); border:1px solid rgba(255,184,0,0.2);
+  padding:8px 16px; color:var(--gold);
+  font-family:'Space Mono'; font-size:10px; letter-spacing:2px;
+}
+
+/* REVEAL ANIMATIONS */
+.reveal {
+  opacity:0; transform:translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity:1; transform:translateY(0);
+}
+.reveal-left {
+  opacity:0; transform:translateX(-32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible { opacity:1; transform:translateX(0); }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--black); }
+::-webkit-scrollbar-thumb { background:var(--orange); }
+
+@media (max-width:900px) {
+  nav { padding:16px 24px; }
+  section { padding:80px 24px; }
+  .about-grid,.editing-grid { grid-template-columns:1fr; gap:40px; }
+  .understanding-grid,.crew-grid,.deliv-grid,.terms-grid { grid-template-columns:1fr; }
+  .samples-grid { grid-template-columns:1fr 1fr; }
+  .sample-card.featured { grid-row:auto; }
+  .phase { grid-template-columns:1fr; }
+  .phase-num { min-height:80px; font-size:48px; }
+  .closing-contact { grid-template-columns:1fr; gap:24px; }
+  .closing-bottom { flex-direction:column; gap:12px; text-align:center; }
+  .hero-meta { flex-wrap:wrap; gap:24px; }
+  .pricing-table td:first-child { white-space:normal; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MADA<span>QATAR</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#approach">Approach</a>
+    <a href="#samples">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#closing">Contact</a>
+  </div>
+  <div class="nav-tag">Confidential RFQ</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-eyebrow" data-delay="0">Video Production Proposal · Riyadh, KSA</div>
+  <h1 class="hero-title">
+    <span class="line1">SUPERPARK</span><br/>
+    <span class="line2">RIYADH</span><br/>
+    <span class="line3">LAUNCH</span>
+  </h1>
+  <p class="hero-sub">A bold, social-first video production proposal for the two-week launch campaign — built for movement, reactions, and repeatable content moments.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <label>Submitted By</label>
+      <value>MADAQATAR</value>
+    </div>
+    <div class="hero-meta-item">
+      <label>Submitted To</label>
+      <value>PME × SUPERPARK</value>
+    </div>
+    <div class="hero-meta-item">
+      <label>Campaign Scope</label>
+      <value>3 PHASES</value>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="#approach" class="hero-cta">
+        View Proposal
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label" data-num="01">Who We Are</div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <h2 class="section-title">WE MAKE <span>CONTENT</span> MOVE</h2>
+      <p><strong>Madaqatar</strong> is a Qatar-based creative production agency specialising in social-first video, brand campaigns, and live event coverage across the GCC region. We operate at the intersection of cinematic craft and platform strategy.</p>
+      <p>Our team combines <strong>Doha-based directors, cinematographers, and VFX artists</strong> with seasoned Tunisian post-production talent — giving us a <strong>GCC presence with international creative bandwidth</strong>.</p>
+      <p>We've produced content for brand launches, cultural events, talent campaigns, and social-native series — always with the same philosophy: <strong>every frame should earn its place on a screen.</strong></p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-card">
+        <span class="stat-num">6</span>
+        <div class="stat-label">Specialists across camera, sound, editing & management</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">100+</span>
+        <div class="stat-label">Social content pieces produced in 2024–25</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">48H</span>
+        <div class="stat-label">Standard turnaround on reel edits post-shoot</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">4K</span>
+        <div class="stat-label">Cinematic capture across all shoot formats</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNDERSTANDING -->
+<section id="understanding">
+  <div class="section-label" data-num="02">Our Understanding</div>
+  <h2 class="section-title">WHAT SUPERPARK <span>REALLY NEEDS</span></h2>
+  <div class="understanding-grid">
+    <div class="u-card reveal">
+      <span class="u-card-num">01</span>
+      <span class="u-card-icon">⚡</span>
+      <h3>Energy, Not Coverage</h3>
+      <p>This isn't a corporate opening night. SuperPark is about movement, adrenaline, and joy. Every clip we deliver needs to feel like it belongs on someone's For You Page — not a press archive.</p>
+    </div>
+    <div class="u-card reveal" style="transition-delay:0.1s">
+      <span class="u-card-num">02</span>
+      <span class="u-card-icon">📱</span>
+      <h3>Social-Native First</h3>
+      <p>Vertical format is the primary deliverable — not an afterthought. We shoot with 9:16 composition in mind from day one, so nothing gets cropped awkwardly in post.</p>
+    </div>
+    <div class="u-card reveal" style="transition-delay:0.2s">
+      <span class="u-card-num">03</span>
+      <span class="u-card-icon">🎯</span>
+      <h3>Volume with Quality</h3>
+      <p>PME needs a high-volume asset library — 60+ b-roll clips, 8 reels, a hero film — without sacrificing the premium aesthetic that SuperPark's brand demands.</p>
+    </div>
+    <div class="u-card reveal" style="transition-delay:0.3s">
+      <span class="u-card-num">04</span>
+      <span class="u-card-icon">👨‍👩‍👧</span>
+      <h3>Family & Creator Moments</h3>
+      <p>The content must capture authentic reactions — kids experiencing thrills for the first time, families together, creators doing what they do. Real moments, not staged shots.</p>
+    </div>
+    <div class="u-card reveal" style="transition-delay:0.4s">
+      <span class="u-card-num">05</span>
+      <span class="u-card-icon">🏷️</span>
+      <h3>Brand Safety Built In</h3>
+      <p>Every piece of content is reviewed against SuperPark's brand guidelines before delivery. No rogue cuts, no off-brand moments — everything is submission-ready.</p>
+    </div>
+    <div class="u-card reveal" style="transition-delay:0.5s">
+      <span class="u-card-num">06</span>
+      <span class="u-card-icon">🗂️</span>
+      <h3>Organised Delivery</h3>
+      <p>We don't drop a WeTransfer link and disappear. Every asset is labeled, logged in a simple spreadsheet, and delivered in a structured folder system ready for your social team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="section-label" data-num="03">Production Approach</div>
+  <h2 class="section-title">THREE <span>PHASES.</span> ONE STORY.</h2>
+  <div class="phases">
+    <div class="phase reveal">
+      <div class="phase-num">1</div>
+      <div class="phase-body">
+        <div class="phase-sub">Pre-Launch · Half Day Shoot</div>
+        <h3>THE WARM-UP</h3>
+        <p>We arrive before the crowds to capture the space in its purest form — atmosphere, architecture, branded cues, and teaser-worthy movement moments. The goal is to create just enough intrigue to build anticipation without revealing everything.</p>
+        <br/>
+        <p style="color:var(--orange);font-size:13px;">Focus: Vertical teasers optimised for Instagram Stories & Reels pre-seeding.</p>
+      </div>
+      <div class="phase-outputs">
+        <h4>Minimum Output</h4>
+        <div class="output-item">10–15 vertical video clips</div>
+        <div class="output-item">1 teaser edit (10–15 sec)</div>
+        <div class="output-item">Delivery within 24h post-shoot</div>
+      </div>
+    </div>
+    <div class="phase reveal" style="transition-delay:0.1s">
+      <div class="phase-num" style="background:var(--gold)">2</div>
+      <div class="phase-body">
+        <div class="phase-sub">Launch Day · Full Shoot Day</div>
+        <h3>THE MOMENT</h3>
+        <p>Our full crew deploys across the park — one lead cinematographer on hero moments, a second camera operator capturing reactions and crowd energy, and a dedicated interview setup for VIP and creator talent. We work in sync with your event flow, not against it.</p>
+        <br/>
+        <p style="color:var(--gold);font-size:13px;">Focus: Hero footage, 4 structured interviews, and 20–30 select clips for reels and ads.</p>
+      </div>
+      <div class="phase-outputs">
+        <h4>Minimum Output</h4>
+        <div class="output-item">Full shoot day (8–10 hrs)</div>
+        <div class="output-item">4 interviews captured</div>
+        <div class="output-item">20–30 select highlight clips</div>
+      </div>
+    </div>
+    <div class="phase reveal" style="transition-delay:0.2s">
+      <div class="phase-num" style="background:var(--cyan); color: var(--black)">3</div>
+      <div class="phase-body">
+        <div class="phase-sub">Post-Launch · Editing & Delivery</div>
+        <h3>THE AFTERMATH</h3>
+        <p>Post-production is where we turn raw footage into a reusable content engine. Our editors work from a pre-approved mood reference, syncing to brief on energy, pacing, and brand tone. Every deliverable goes through an internal review before reaching the client.</p>
+        <br/>
+        <p style="color:var(--cyan);font-size:13px;">Focus: Hero recap, 8 platform-ready reels, curated b-roll library, and clean delivery.</p>
+      </div>
+      <div class="phase-outputs">
+        <h4>Minimum Output</h4>
+        <div class="output-item">1 hero recap (60–90s, 2 formats)</div>
+        <div class="output-item">8 vertical reels (15–30 sec)</div>
+        <div class="output-item">60-clip b-roll pack + log sheet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREW -->
+<section id="crew">
+  <div class="section-label" data-num="04">Crew Structure</div>
+  <h2 class="section-title">THE <span>TEAM</span></h2>
+  <div class="crew-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="crew-card reveal">
+      <div class="crew-avatar">
+        🎬
+        <div class="crew-location">🇶🇦</div>
+      </div>
+      <h3>Lead Director</h3>
+      <div class="role">Creative Lead</div>
+      <p class="desc">Oversees visual storytelling, directs talent on-set, manages shoot schedule and full crew coordination. Qatar-based.</p>
+    </div>
+    <div class="crew-card reveal" style="transition-delay:0.1s">
+      <div class="crew-avatar" style="background:linear-gradient(135deg,var(--cyan),#0066ff)">
+        📷
+        <div class="crew-location">🇶🇦</div>
+      </div>
+      <h3>Cinematographer A</h3>
+      <div class="role">Primary Camera</div>
+      <p class="desc">Hero camera operator. 4K cinematic capture, movement shots, attraction highlights, and VIP moments.</p>
+    </div>
+    <div class="crew-card reveal" style="transition-delay:0.2s">
+      <div class="crew-avatar" style="background:linear-gradient(135deg,var(--gold),#ff8c00)">
+        🎥
+        <div class="crew-location">🇶🇦</div>
+      </div>
+      <h3>Cinematographer B</h3>
+      <div class="role">Reactions & BTS</div>
+      <p class="desc">Second camera dedicated to crowd energy, family moments, reaction shots, and creator content capture.</p>
+    </div>
+    <div class="crew-card reveal" style="transition-delay:0.3s">
+      <div class="crew-avatar" style="background:linear-gradient(135deg,#22c55e,#16a34a)">
+        🎙️
+        <div class="crew-location">🇶🇦</div>
+      </div>
+      <h3>Sound Engineer</h3>
+      <div class="role">Audio Lead</div>
+      <p class="desc">Handles all on-site audio capture — ambient sound, interview mics, crowd atmosphere, and clean audio for reels.</p>
+    </div>
+    <div class="crew-card reveal" style="transition-delay:0.4s">
+      <div class="crew-avatar" style="background:linear-gradient(135deg,#a855f7,#6366f1)">
+        ✂️
+        <div class="crew-location">🇹🇳</div>
+      </div>
+      <h3>Senior Editor</h3>
+      <div class="role">Post-Production Lead</div>
+      <p class="desc">Leads all editing, pacing, music sync, motion graphics, and colour grade. Expert in social-first formats.</p>
+    </div>
+    <div class="crew-card reveal" style="transition-delay:0.5s">
+      <div class="crew-avatar" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
+        📋
+        <div class="crew-location">🇶🇦</div>
+      </div>
+      <h3>Production Manager</h3>
+      <div class="role">Operations & Logistics</div>
+      <p class="desc">Manages shoot logistics, permits, talent coordination, schedule, and client communication throughout the campaign.</p>
+    </div>
+  </div>
+  <div class="crew-note reveal" style="margin-top:2px">
+    <span class="crew-note-icon">✈️</span>
+    <p><strong>Mobilisation Note:</strong> Our 5-person on-ground crew (Director, 2× Cinematographers, Sound Engineer, Production Manager) operates from Doha, Qatar and will travel to Riyadh for both shoot days. All logistics, accommodation, and ground transport are fully covered by Madaqatar. Our Senior Editor in Tunisia manages post-production remotely with real-time cloud handoff — zero delay between shoot wrap and edit start.</p>
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="samples">
+  <div class="section-label" data-num="05">Work Samples</div>
+  <div class="samples-intro">
+    <h2 class="section-title" style="margin-bottom:0">SELECTED <span>WORK</span></h2>
+    <p>A curated selection of work that reflects the energy, craft, and social-first approach we bring to every project. All content by <strong style="color:var(--white)">@aziz_jedidi</strong> — Director at Madaqatar's creative team.</p>
+  </div>
+  <div class="samples-grid">
+    <!-- Featured Reel 1 - Memories (46.7K) -->
+    <div class="sample-card featured reveal">
+      <div class="sample-bg" style="height:100%; min-height:420px; background: linear-gradient(135deg, #1a0a00, #2d1200, #0a0a1a);">
+        <div style="font-size:80px; opacity:0.15; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%)">🎬</div>
+        <div style="position:absolute; bottom:0; left:0; right:0; padding:32px; background:linear-gradient(to top, rgba(0,0,0,0.95), transparent)">
+          <div class="sample-tag">Cinematic · Interview</div>
+          <div class="sample-views">👁 46.7K Views</div>
+          <div class="sample-title" style="font-size:32px">MEMORIES — Visual Film</div>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/reel/C22Lo_3tDDQ/" target="_blank" class="sample-play">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+      </a>
+    </div>
+    <!-- Reel 2 - It Takes a Team (113K) -->
+    <div class="sample-card reveal" style="transition-delay:0.1s">
+      <div class="sample-bg" style="background:linear-gradient(135deg,#001a0a,#002d15)">
+        <div style="font-size:60px; opacity:0.15">🎥</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,rgba(0,0,0,0.95),transparent)">
+          <div class="sample-tag" style="background:var(--cyan);color:var(--black)">BTS · Crew</div>
+          <div class="sample-views">👁 113K Views</div>
+          <div class="sample-title">IT TAKES A TEAM</div>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/reel/DLC550UoZYP/" target="_blank" class="sample-play">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+      </a>
+    </div>
+    <!-- Reel 3 - VFX Effect (60.4K) -->
+    <div class="sample-card reveal" style="transition-delay:0.2s">
+      <div class="sample-bg" style="background:linear-gradient(135deg,#1a001a,#2d0020)">
+        <div style="font-size:60px; opacity:0.15">✨</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,rgba(0,0,0,0.95),transparent)">
+          <div class="sample-tag" style="background:var(--gold);color:var(--black)">VFX · Effects</div>
+          <div class="sample-views">👁 60.4K Views</div>
+          <div class="sample-title">CINEMATIC EFFECT REEL</div>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/reel/C3DOuW4tUuC/" target="_blank" class="sample-play">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+      </a>
+    </div>
+    <!-- Reel 4 - Qatar Day in Life (21.2K) -->
+    <div class="sample-card reveal" style="transition-delay:0.3s">
+      <div class="sample-bg" style="background:linear-gradient(135deg,#001020,#001a2d)">
+        <div style="font-size:60px; opacity:0.15">🇶🇦</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,rgba(0,0,0,0.95),transparent)">
+          <div class="sample-tag" style="background:#6366f1;color:white)">Documentary</div>
+          <div class="sample-views">👁 21.2K Views</div>
+          <div class="sample-title">DAY IN QATAR — Filmmaker Life</div>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/reel/DK-CcT_tl6b/" target="_blank" class="sample-play">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+      </a>
+    </div>
+  </div>
+  <div style="margin-top:16px; padding:16px 24px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:space-between;">
+    <span style="font-family:'Space Mono';font-size:10px;color:var(--muted);letter-spacing:2px;">CLICK ANY THUMBNAIL TO VIEW ON INSTAGRAM ↗</span>
+    <a href="https://www.instagram.com/aziz_jedidi/" target="_blank" style="font-family:'Space Mono';font-size:10px;color:var(--orange);letter-spacing:2px;text-decoration:none;">@AZIZ_JEDIDI · FULL PORTFOLIO ↗</a>
+  </div>
+</section>
+
+<!-- EDITING -->
+<section id="editing">
+  <div class="section-label" data-num="06">Editing Approach & Timeline</div>
+  <h2 class="section-title">FAST. <span>FOCUSED.</span> DELIVERED.</h2>
+  <div class="editing-grid">
+    <div class="editing-left">
+      <div class="editing-timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-day">
+            <div class="t-circle">D1</div>
+            <div class="t-label">Shoot Day</div>
+          </div>
+          <div class="timeline-content">
+            <h4>On-Set Capture & Selects</h4>
+            <p>Footage captured and backed up on-site. Director reviews selects and flags priority clips for fast-turnaround edits before end of day.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" style="transition-delay:0.1s">
+          <div class="timeline-day">
+            <div class="t-circle" style="background:var(--gold)">D2</div>
+            <div class="t-label">Next Day</div>
+          </div>
+          <div class="timeline-content">
+            <h4>Teaser & Select Reels</h4>
+            <p>First 3–4 reels delivered for review within 24 hours. Same-day interview selects shared for transcript review.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" style="transition-delay:0.2s">
+          <div class="timeline-day">
+            <div class="t-circle" style="background:var(--cyan);color:var(--black)">D4</div>
+            <div class="t-label">Day 4–5</div>
+          </div>
+          <div class="timeline-content">
+            <h4>Full Reels Pack + B-Roll</h4>
+            <p>All 8 vertical reels delivered. Curated b-roll pack structured and logged. Revision feedback incorporated.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" style="transition-delay:0.3s">
+          <div class="timeline-day">
+            <div class="t-circle" style="background:#a855f7">D7</div>
+            <div class="t-label">Day 7</div>
+          </div>
+          <div class="timeline-content">
+            <h4>Hero Recap Video — Final Delivery</h4>
+            <p>Full hero recap (60–90s) in both 16:9 and 9:16 formats. All assets in final delivery folders with log sheet. Project complete.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="editing-right">
+      <div class="editing-approach-items">
+        <div class="ea-item reveal">
+          <h4>Mood-Matched Editing</h4>
+          <p>We edit from a pre-approved reference that matches SuperPark's energy brief — fast-cut, music-synced, movement-led. No slow corporate pacing.</p>
+        </div>
+        <div class="ea-item reveal" style="transition-delay:0.1s">
+          <h4>Social-Optimised Specs</h4>
+          <p>All reels exported to platform spec: 1080×1920 for Instagram/TikTok, H.264/HEVC, under 90 seconds. No client-side reformatting needed.</p>
+        </div>
+        <div class="ea-item reveal" style="transition-delay:0.2s">
+          <h4>Colour Grade Included</h4>
+          <p>Every deliverable receives a full colour grade — not just an auto-correction. Brand-consistent look across all assets.</p>
+        </div>
+        <div class="ea-item reveal" style="transition-delay:0.3s">
+          <h4>Cloud Delivery</h4>
+          <p>Assets delivered via a structured Google Drive with preview thumbnails, clearly named folders, and a one-page asset log for your social team.</p>
+        </div>
+        <div class="revisions-tag reveal" style="transition-delay:0.4s">
+          ⭮ &nbsp;&nbsp; <strong>2 revision rounds included</strong> on all hero deliverables. Additional revisions at SAR 500/round.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="section-label" data-num="07">Full Deliverables</div>
+  <h2 class="section-title">WHAT YOU <span>GET</span></h2>
+  <div class="deliv-grid">
+    <div class="deliv-card reveal">
+      <span class="deliv-num">01</span>
+      <h3>Pre-Launch Package</h3>
+      <ul class="deliv-list">
+        <li>Half-day on-site capture session</li>
+        <li>10–15 vertical video clips (edited, colour graded)</li>
+        <li>1 teaser edit — 10 to 15 seconds</li>
+        <li>Delivered within 24h of shoot</li>
+      </ul>
+    </div>
+    <div class="deliv-card reveal" style="transition-delay:0.1s">
+      <span class="deliv-num">02</span>
+      <h3>Launch Day Package</h3>
+      <ul class="deliv-list">
+        <li>Full 8–10 hour shoot day (2 camera operators)</li>
+        <li>4 structured interviews captured + selects</li>
+        <li>20–30 highlight clips, colour graded</li>
+        <li>BTS behind-the-scenes footage included</li>
+      </ul>
+    </div>
+    <div class="deliv-card reveal" style="transition-delay:0.2s">
+      <span class="deliv-num">03</span>
+      <h3>Post-Production Package</h3>
+      <ul class="deliv-list">
+        <li>1 hero recap video — 60 to 90 seconds</li>
+        <li>2 format versions: 16:9 and 9:16</li>
+        <li>8 vertical reels, 15–30 seconds each</li>
+        <li>60-clip curated b-roll pack (8–12 min total)</li>
+        <li>Organised delivery folders + asset log sheet</li>
+        <li>2 rounds of revisions on hero deliverables</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-label" data-num="08">Commercial Proposal</div>
+  <h2 class="section-title">INVESTMENT <span>BREAKDOWN</span></h2>
+  <p class="pricing-intro">All pricing in Saudi Riyal (SAR), exclusive of VAT. Based on confirmed scope as per RFQ from PME. Rates reflect a professional 6-person crew, full production logistics, and complete post-production delivery. Full campaign package available at a bundled rate.</p>
+  <table class="pricing-table">
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th>Description</th>
+        <th style="text-align:right">SAR excl. VAT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="category"><td colspan="3">— CAPTURE SERVICES</td></tr>
+      <tr class="reveal">
+        <td>Pre-Launch Capture</td>
+        <td>Half-day shoot · Full 6-person crew · 10–15 vertical clips + 1 teaser edit · sound & lighting included</td>
+        <td>45,000</td>
+      </tr>
+      <tr class="reveal">
+        <td>Launch Coverage Day</td>
+        <td>Full day shoot · 2 camera operators + sound engineer + production manager · crowd, atmosphere, attraction highlights</td>
+        <td>85,000</td>
+      </tr>
+      <tr class="reveal">
+        <td>Interview Capture</td>
+        <td>4 structured interviews · dedicated interview setup · professional sound capture · lighting rig</td>
+        <td>35,000</td>
+      </tr>
+      <tr class="category"><td colspan="3">— POST-PRODUCTION</td></tr>
+      <tr class="reveal">
+        <td>Hero Recap Edit</td>
+        <td>60–90 sec hero film · full cinematic grade · 16:9 + 9:16 format versions · licensed music score</td>
+        <td>40,000</td>
+      </tr>
+      <tr class="reveal">
+        <td>Reels Pack</td>
+        <td>8 vertical reels · 15–30 sec each · platform-optimised specs · motion graphics · licensed music</td>
+        <td>45,000</td>
+      </tr>
+      <tr class="reveal">
+        <td>B-roll Pack</td>
+        <td>60 curated clips · full colour grade · organised delivery folders + detailed log sheet</td>
+        <td>25,000</td>
+      </tr>
+      <tr class="category"><td colspan="3">— OPTIONAL ADD-ONS</td></tr>
+      <tr class="optional reveal">
+        <td>Additional Shoot Day</td>
+        <td>Full extra day · complete 6-person crew · raw + edited selects delivered within 48h</td>
+        <td>75,000</td>
+      </tr>
+      <tr class="optional reveal">
+        <td>Rush Edit Fee</td>
+        <td>Same-day or next-morning priority delivery per edit round</td>
+        <td>12,000</td>
+      </tr>
+      <tr class="total reveal">
+        <td>TOTAL PACKAGE (Capture + Post)</td>
+        <td>Full campaign scope · 6-person crew · pre-launch through final delivery · 2 revision rounds included</td>
+        <td>275,000</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pricing-note">
+    💡 <strong>Bundled Discount Available:</strong> Book all three phases together and receive an 8% discount on the total — saving approximately SAR 22,000. Discounted total: <strong>SAR 253,000 excl. VAT.</strong> All travel, accommodation, and logistics for Riyadh shoot days are included in the quoted rates.
+  </div>
+</section>
+
+<!-- TERMS -->
+<section id="terms">
+  <div class="section-label" data-num="09">Usage Rights & Terms</div>
+  <h2 class="section-title">TERMS & <span>LICENSING</span></h2>
+  <div class="terms-grid">
+    <div class="term-card reveal">
+      <h3>Usage Rights</h3>
+      <ul>
+        <li>All delivered assets are fully licensed to PME and SuperPark Riyadh for campaign use</li>
+        <li>Unlimited use across all social platforms: Instagram, TikTok, YouTube, Facebook, X</li>
+        <li>Paid advertising use included — boosted posts and media buys permitted</li>
+        <li>PR and press distribution rights included</li>
+        <li>Usage period: Perpetual licence for all campaign materials</li>
+        <li>Madaqatar retains the right to feature work in portfolio after campaign goes live</li>
+      </ul>
+    </div>
+    <div class="term-card reveal" style="transition-delay:0.1s">
+      <h3>Commercial Terms</h3>
+      <ul>
+        <li>50% deposit required upon contract signature to confirm booking</li>
+        <li>Remaining 50% due within 7 days of final delivery</li>
+        <li>Invoices in SAR to: MADA TRADING</li>
+        <li>Additional revision rounds: SAR 5,000 per round after the included 2</li>
+        <li>Cancellation within 72h of shoot: 25% of shoot-day fee retained</li>
+        <li>Travel delays due to client scheduling: rescheduled at no extra charge</li>
+      </ul>
+    </div>
+    <div class="term-card reveal" style="transition-delay:0.2s">
+      <h3>Music & Third-Party</h3>
+      <ul>
+        <li>All music used in edited deliverables will be platform-licensed (Epidemic Sound / Artlist)</li>
+        <li>No copyright strikes on licensed tracks for standard social distribution</li>
+        <li>Client may supply preferred music tracks — we'll check licensing before use</li>
+        <li>Any talent releases or on-screen participants are managed by PME / SuperPark</li>
+        <li>Raw footage ownership transfers to client on full payment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section id="closing">
+  <div class="closing-glow"></div>
+  <div class="closing-tag">Let's Build This Together</div>
+  <h2 class="closing-title">
+    READY TO<br/>
+    <span class="sub">MAKE IT</span><br/>
+    MOVE.
+  </h2>
+  <div class="closing-contact">
+    <div class="contact-item">
+      <label>Agency</label>
+      <value>MADAQATAR / MADA TRADING</value>
+    </div>
+    <div class="contact-item">
+      <label>CR Number</label>
+      <value>175130</value>
+    </div>
+    <div class="contact-item">
+      <label>Creative Director</label>
+      <value>AZIZ JEDIDI</value>
+    </div>
+  </div>
+  <div class="closing-divider"></div>
+  <div class="closing-bottom">
+    <div class="confidential-badge">
+      🔒 CONFIDENTIAL — For PME / Floris Keyzer Eyes Only
+    </div>
+    <span>© 2025 MADAQATAR · All Rights Reserved</span>
+    <span>Submitted in Response to SuperPark Riyadh RFQ</span>
+  </div>
+</section>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+});
+function animateRing() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a,button,.u-card,.crew-card,.phase,.sample-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
+    ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
+    ring.style.borderColor = 'var(--gold)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    ring.style.transform = 'translate(-50%,-50%) scale(1)';
+    ring.style.borderColor = 'var(--orange)';
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observe(el));
+
+// Hero animation on load
+window.addEventListener('load', () => {
+  const eyebrow = document.querySelector('.hero-eyebrow');
+  const title = document.querySelector('.hero-title');
+  const sub = document.querySelector('.hero-sub');
+  const meta = document.querySelector('.hero-meta');
+  [eyebrow,title,sub,meta].forEach((el,i) => {
+    if(!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `opacity 0.8s ease ${i*0.15}s, transform 0.8s ease ${i*0.15}s`;
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100);
+  });
+});
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--orange)' : '';
+  });
+});
+</script>
+</body>
+</html>
